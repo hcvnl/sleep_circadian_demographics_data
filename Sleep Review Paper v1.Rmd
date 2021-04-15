@@ -97,10 +97,10 @@ library(lemon)
 r_refs("r-references.bib")
 
 # Set working directory
-setwd("~/Sleep Review")
+setwd("~/Projects/sleep_circadian_demographics_data")
 
 # Download scoring sheet 
-data.original <- read_excel("Sleep Review Scoring Sheet Test.xlsx")
+data.original <- read_excel("scoring_rhiannon.xlsx")
 ```
 
 # Introduction 
