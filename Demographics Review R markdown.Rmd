@@ -102,17 +102,18 @@ r_refs("Demographics Review References.bib")
 ## Change path if needed 
 
 # Set working directory
-setwd("~/Demographics Review")
+#setwd("~/Demographics Review")
+setwd("~/Projects/sleep_circadian_demographics_data")
 
 # Download scoring sheet 
-data.original <- read_excel("scoring_rhiannon.xlsx")
+data.original <- read_excel("scoring.xlsx")
 ```
 
 # Introduction 
 
   Many aspects of sleep and circadian physiology appear to be sensitive to characteristics of the studied population, most notably sex. While recent research robustly highlights the importance of considering participant-level demographic information, it is not clear to what extent this information is available in the large body of already published literature. In this systematic review, we evaluated the study sample characteristics in the published sleep and chronobiology research over the past 40 years.
   
-  A recent study reviewed the reporting and analysis of sex in the biological sciences research [@RN1]. The authors found that while sex inclusion has significantly increased over the past 10 years, sex-based analysis has not improved, despite recent policies. 
+  A recent study reviewed the reporting and analysis of sex in the biological sciences research [@woitowich_a_2020, @mallampalli_exploring_2014]. The authors found that while sex inclusion has significantly increased over the past 10 years, sex-based analysis has not improved, despite recent policies. 
 
   
 # Methods
