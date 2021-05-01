@@ -526,8 +526,10 @@ age.corr.year <- melt(age.corr.year,id.vars='article_year',
 figure4A <- ggplot(data=age.corr.year, aes(x=variable, y=article_year, fill=value)) +
   geom_tile() +
   theme_apa() +
-  ylab(label="Year") +
+  ylab(label="Year of publication") +
   xlab("Age variable") +
+  scale_y_continuous(breaks=c(1979,1989,1999,2009,2019), expand=c(0.02,0),
+                     labels=c("                   1979", "1989","1999","2009","2019")) +
   scale_fill_viridis_c(end=0.6, direction=-1, name="Reporting",
                        limits=c(-1,1), labels=c("0.0","0.25","0.5","0.75","1")) +
   theme(axis.title=element_text(face="bold", size=12), 
@@ -577,14 +579,15 @@ figure4B <- ggplot(data=age.corr.journal,
                    aes(x=variable, y=article_journal, fill=value)) +
   geom_tile() +
   theme_apa() +
-  ylab(label="Journal") +
+  ylab(label="Journal of publication") +
   xlab("Age variable") +
-  scale_fill_viridis_c(end=0.6, direction=-1) +
+  scale_fill_viridis_c(end=0.6, direction=-1, name="Reporting",
+                       limits=c(-1,1), labels=c("0.0","0.25","0.5","0.75","1")) +
   theme(axis.title=element_text(face="bold", size=12), 
         axis.text=element_text(colour="black", face="bold"), 
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8),
-        legend.position="none", legend.margin=margin(0,0,0,0),
-        legend.box.margin=margin(-10,0,-10,-10), legend.title=element_blank())
+        legend.position="right", legend.margin=margin(0,0,0,0),
+        legend.box.margin=margin(-10,0,-10,-10), legend.title=element_text(face="bold"))
 
 ## Regression for age by year of publication
 # filter articles that report mean age in years
@@ -627,9 +630,6 @@ summary(lm(age_reported_mean_value ~ article_year, data=data.age.mean))
 figure4C <- ggplot(data=data.age.mean, aes(x=article_year, y=age_reported_mean_value)) +
   geom_smooth(method="lm", color="#440154FF") +
   geom_point(size=1, color="#33638DFF") +
-  #geom_text(x=1988, y=10, size=3.3,
-            #label="Mean age = 281.5 - 0.1 * Year of publication") + # edit manually
-  #geom_text(x=1988, y=7, size=3.1, label="R-Sq = 0.3%") + # edit manually
   theme_apa() +
   ylab("Mean age (years)") +
   xlab("Year of publication") +
@@ -639,6 +639,7 @@ figure4C <- ggplot(data=data.age.mean, aes(x=article_year, y=age_reported_mean_v
         axis.text=element_text(colour="black", face="bold"), 
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8))
 ```
+
 
 ```{r Sex, echo=FALSE, message=FALSE, warning=FALSE}
 # Select sex variables       
@@ -695,6 +696,7 @@ figure5A <- ggplot(data.sex, aes(x=article_year, y=per)) +
   theme(axis.title=element_text(face="bold", size=12), 
         axis.text=element_text(colour="black", face="bold"), 
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8),
+        legend.title=element_text(face="bold"),
         legend.margin=margin(0,0,0,0), legend.box.margin=margin(-10,0,-10,-10)) 
   
 # Select articles for which sex is reported
@@ -840,7 +842,7 @@ figure6 <- ggplot(data.demo.reported, aes(x=article_year, y=per, color=factor(va
   theme_apa() +
   xlab("Year of publication") +
   ylab("Proportion of articles") +
-  scale_color_viridis_d(name="Variable", 
+  scale_color_viridis_d(name="Variable reported", 
                         labels=c("Education","Ethnicity","Profession","Socio-economic status")) +
   scale_x_continuous(limits=c(1979,2019), breaks=c(1979,1989,1999,2009,2019)) +
   scale_y_continuous(labels=c("0%","25%","50%","75%","100%"), limits=c(0,100)) +
@@ -1155,7 +1157,6 @@ figure4B
 
 ```{r, fig.cap="Reporting of age variables. Correlation between the reporting of the mean, standrad deviation of the mean, median, minimum, maximum, interquartile range and other age variables by A. year of publication and B. journal of publication. C. Mean age by year of publication.", message=FALSE, warning=FALSE}
 figure4C
-#grid.arrange(figure4A, figure4C, figure4B, nrow=2)
 ```
 
 ### Sex
