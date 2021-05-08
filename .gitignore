@@ -37,3 +37,10 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# Additional files from knitr
+*.log
+article_files
+
+# Files created by OS X/Finger
+*.DS_Store
