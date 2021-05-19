@@ -24,6 +24,7 @@ author:
     affiliation   : "1,4,5"
     corresponding : yes    # Define only one corresponding author
     email         : "manuel.spitschan@psy.ox.ac.uk"
+    address       : Department of Experimental Psychology, University of Oxford, Anna Watts Building, Radcliffe Observatory Quarter, Woodstock Rd, Oxford, OX2 6GG, United Kingdom
     role:
       - Conceptualization
       - Data curation
@@ -68,7 +69,7 @@ draft             : no
 
 documentclass     : "apa6"
 classoption       : "jou"
-output            : papaja::apa6_pdf
+output            : papaja::apa6_docx
 ---
 
 
