@@ -25,6 +25,7 @@ author:
     corresponding : yes    # Define only one corresponding author
     email         : "manuel.spitschan@psy.ox.ac.uk"
     address       : Department of Experimental Psychology, University of Oxford, Anna Watts Building, Radcliffe Observatory Quarter, Woodstock Rd, Oxford, OX2 6GG, United Kingdom
+    telephone     : +44 1865 281861
     role:
       - Conceptualization
       - Data curation
@@ -50,14 +51,15 @@ affiliation:
     institution   : "Transfaculty Research Platform Molecular and Cognitive Neurosciences, University of Basel, Switzerland"
 
 authornote: |
-  Corresponding author: Manuel Spitschan (manuel.spitschan@psy.ox.ac.uk). This work ws funded by the Wellcome Trust (Sir Henry Wellcome Fellowship to MS 204686/Z/16/Z; Research Enrichment – Diversity & Inclusion WT 204686/Z/16/A) and Linacre College (Biomedical Sciences Junior Research Fellowship to MS).
+ This work was funded by the Wellcome Trust (Sir Henry Wellcome Fellowship to MS 204686/Z/16/Z; Research Enrichment – Diversity & Inclusion WT 204686/Z/16/A) and Linacre College (Biomedical Sciences Junior Research Fellowship to MS).
 abstract: |
   Many aspects of sleep and circadian physiology appear to be sensitive to participant-level characteristics. While recent research robustly highlights the importance of considering participant-level demographic information, it is not clear to what extent this information is available in the large body of already published literature. Here, we investigated study sample characteristics in the published sleep and chronobiology research over the past 40 years. 6,777 articles were identified and a random sample of 20% was included. The reporting of sample size, age, sex, gender, ethnicity, level of education, socio-economic status, and profession of the study population was scored, and any reported aggregate summary statistics for these variables were recorded. We found that while >90% of studies reported age or sex, all other variables were reported in <10% of cases. Sex balance greatly changed over the years, from a ~3:1 male to female ratio in the 1990s to a near-equal representation in the 2010s. We found that the majority of studies report at least sex or age, while other variables are typically not reported. Reporting quality is highly variable, indicating an opportunity to standardize reporting guidelines for participant-level characteristics to facilitate meta analyses.
   
 keywords          : "demographics, ethnicity, sex, research participants, reporting, publishing, meta-science"
-wordcount         : "X"
+wordcount         : "3200"
 
 bibliography      : references.bib
+csl               : vancouver.csl
 
 floatsintext      : yes
 figurelist        : yes
@@ -118,6 +120,24 @@ setwd("~/Projects/sleep_circadian_demographics_data")
 data.original <- read_excel("data.xlsx")
 ```
 
+# Summary
+
+In this article, we addressed the question how representiative, diverse and inclusive published research articles in sleep and chronobiology are. We analysed a sample of >1,300 articles published in sleep research and chronobiology journals between 1979 and 2019 for its inclusion, reporting analysis of demographic variables of study participants, including age, sex, gender, ethnicity, level of education, socio-economic status, and professio.  We found that while >90% of studies reported age or sex, all other variables were reported in <10% of cases, with the frequency of reporting changing over time. We identify opportunities for improving the reporting of demographic variables.
+
+# Research Agenda
+
+Future research needs to identify:
+1. Schemas for reporting demographic variables in a harmonised way across geographical and culutral contexts;
+2. Gaps in the sleep and chronobiology literature with respect to understudied populations;
+3. Understand the extent to which research practices run counter the inclusion of diverse populations in research in all stages of the research cycle, and how this can exacerbate health inequities.
+
+# Practice Points
+
+1. Published studies on circadian and sleep physiology should be carefully examined.
+1. Reporting of demographic variables should be done carefully and systematically.
+2. Inclusion and diversity of different populations across the field needs to be ensured.
+
+
 # Introduction 
 
 There are large individual differences in and circadian physiology [@van_dongen_individual_2005; @kerkhof_inter-individual_1985; @tankova_circadian_1994; @horne_individual_1977; @baehr_individual_2000; @burgess_individual_2008; @santhi_spectral_2012; @chellappa_individual_2021], demonstrating the need to consider sleep and circadian physiology at participant-level. Some of these characteristics are systematically related to demographic variables, most notably sex [@redline_effects_2004; @santhi_sex_2016; @cain_sex_2010; @anderson_sexual_2020; @mong_sleep_2011], age [@redline_effects_2004; @espiritu_aging-related_2008; @mander_sleep_2017; @desforges_sleep_1990; @li_sleep_2018; @bliwise_sleep_1993; @benloucif_responsiveness_2006; @duffy_aging_2015] and ethnicity [@ahn_scoping_2021; @goldstein_sleep_2020; @eastman_blacks_2012; @eastman_circadian_2016]. Zooming out from the level of individual studies, there are significant inequities in sleep health depending on ethnicity and socio-economic status [@jackson_sleep_2020; @jackson_racialethnic_2020; @williams_racialethnic_2015; @jackson_workshop_2020; @jean-louis_importance_2016; @laposky_reducing_2016]. As compromised sleep has many knock-on effects, including negative effects on cardiovascular, metabolic, neurobehavioural and cognitive function, it is a key imperative to understand how demographic variables influence sleep and circadian rhythms.
@@ -128,15 +148,15 @@ While research findings converge on participant-level demographic characteristic
 
 # Methods
   
-### Procedure
+## Procedure
 
 Journal articles published between 1979 and 2019 (odd years) in the top eight sleep and chronobiology journals were considered. The list of possible target journals was based on a previously established list of journals implementing a hybrid strategy by consulting the Web of Science Master Journal List, domain-relevant expertise in sleep and chronobiology and consulting with a senior researcher with >25 years of experience in the field [@spitschan_transparency_2020]. From this previously derived list, we selected eight journals based on their five-year Impact Factor, and included *Journal of Pineal Research* (ISSN: 0742-3098 / 1600-079X; 2018 5-year IF: 12.197), *Sleep*  (0161-8105 / 1550-9109; 5.588), *Journal of Sleep Research* (0962-1105 / 1365-2869; 3.951), *Sleep Medicine* (1389-9457 / 1878-5506; 3.934), *Journal of Clinical Sleep Medicine* (1550-9389 / 1550-9397; 3.855), *Journal of Biological Rhythms* (0748-7304 / 1552-4531; 3.349), Behavioral Sleep Medicine (1540-2002 / 1540-2010; 3.162), and *Chronobiology International* (0742-0528 / 1525-6073; 2.998). While *Sleep Medicine Reviews* also features in the list of journals, we did not include it as it primarily publishes reviews.
 
-### Article inclusion
+## Article inclusion
 
 6,777 articles were identified through a MEDLINE search by the journal and including odd years. A random sample of 20% was initially selected for screening. Inclusion requirements included conducting original research in the English language, reporting human data, and recruiting volunteers. As such, animal studies, bibliographies, case reports, comments, conference proceedings, editorials, guidelines, letters, retracted publications, reviews, errata and corrigenda were excluded.
 
-### Review and article extraction
+## Review and article extraction
 
 All included articles were reviewed for eligibility and coded by RW. The reporting of sample size, age, sex, gender, ethnicity, level of education, socio-economic status, and profession of the study population was scored binarily (0 = not reported, 1 = reported), and any reported aggregate summary statistics for these variables were recorded. Funding source, geographical location and clinical focus of the article were examined, as well as whether data were analyzed by including any of the demographic variables as covariates.  Data were coded in an Excel Spreadsheet and analyzed in R Studio (version 4.0.5). Reporting of funding, geographical location, and number of sub-studies for each article were investigated for the sample of articles that passed all eligibility criteria.
 
@@ -233,11 +253,11 @@ figure2 <- ggplot(data.eligibility, aes(x=article_year, y=per)) +
         legend.box.margin=margin(-10,0,-10,-10))
 ```
 
-### Pre-registration
+## Pre-registration
 
 We pre-registered our protocol (specified using the PRISMA-P template [@shamseer_preferred_2015; @prisma-p_group_preferred_2015]) on the Open Science Framework (https://osf.io/cu3we/).
 
-### Materials, data and code availability
+## Materials, data and code availability
 
 All data underlying this manuscript are available on a public GitHub repository (https://github.com/hcvnl/sleep_circadian_demographics_data). The article was written in R [@R-base] using RMarkdown and papaja [@R-papaja], employing a series of additional R packages [@R-corrplot2017; @R-dplyr; @R-ggExtra; @R-ggformula; @R-ggplot2; @R-ggridges; @R-ggsci; @R-ggstance; @R-ggthemes; @R-gridExtra; @R-knitr; @R-lattice; @R-latticeExtra; @R-lemon; @R-Matrix; @R-mosaic; @R-mosaicData; @R-pracma; @R-readr; @R-readxl; @R-reshape2; @R-stringr; @R-tibble; @R-tidyr] and is fully reproducible.
 
@@ -475,7 +495,7 @@ num.study <- data.included %>%
 percent.study.single <- num.study$n[1]
 percent.study.multiple <- 1 - num.study$n[1]
 
-### The rest  of the analysis will be conducted on included single studies
+## The rest  of the analysis will be conducted on included single studies
 # Filter single studies
 data <- data.included %>%
   filter(num_substudies == 1)
@@ -1141,7 +1161,7 @@ figure12 <- ggplot(data.analysis, aes(x=article_year, y=per)) +
 
 # Results
 
-### Number of analysed articles
+## Number of analysed articles
 
 Out of `r as.numeric(nrow(data.original))` identified and pre-screened articles, we included and extracted data from `r as.numeric(nrow(data.included))` (`r round(percent.included)`%). The distribution of years in which the articles were published is non-uniform and we included and extracted data from more recent articles (Fig. 1). In addition, the representation of journals in the final list of articles is non-uniform, not least as the included journals will have not have been available from the entire data collection period (1979 and onwards).
   
@@ -1155,7 +1175,7 @@ We also examined reasons for exclusion amongst the articles that we did not incl
 figure2
 ```
 
-### Funding
+## Funding
 
   We examined the reporting of funding sources in included articles. Funding sources were reported by `r round(percent.funding.name)`% of studies, while funding number was also reported in `r round(percent.funding.num)`% of these cases (Fig. 3). Overall, funding by the United States' National Institutes of Health (NIH) represented `r round(percent.funding.NI)`% of the reported funding agencies. `r round(percent.funding.NI.num)`% of the studies funded by the NIH also reported funding number. The second most represented funding agencies were the Australian National Health and Medical Research Council (NHMRC) and the Canadian Institutes of Health Research (CIHR). 
   
@@ -1163,7 +1183,7 @@ figure2
 figure3
 ```
 
-### Geographical location
+## Geographical location
   
   `r round(100-percent.country.multiple)`% of articles were conducted in a single country. The geographical location of the study was explicitly reported in `r round(percent.country.reported)`% of studies. The country of study was inferred for the rest of the sampled articles. Inference was primarily based on the first author's affiliation. Overall, `r nrow(country.single)` countries were represented. `r round(percent.country.multiple)`% of articles reported multiple countries of study. Figure 4 shows the distribution of study location across time with the eight most represented countries. Across all years, the US is the most represented country.
   
@@ -1171,7 +1191,7 @@ figure3
 figure4
 ```
 
-### Sample size
+## Sample size
 
   We examined whether sample size reported in studies, and the sample sizes reported. Overall, sample size was reported in `r round(percent.ss)`% of studies. We furthermore examined the distribution of samples sizes as a function of the publication year of the article (Fig. 5), showing a wider distribution of sample sizes in more recent articles.
 
@@ -1179,7 +1199,7 @@ figure4
 figure5
 ```
 
-### Age
+## Age
 
   `r round(percent.age)`% of articles reported a variable describing age. Overall, the average mean age of the study populations was `r round(mean(data.age.mean$age_reported_mean_value))` years old. We examined the extent to which the mean age across studies differed widely as a function of publication year (Fig. 6), and found that the mean age is much more widely varied in later years, likely reflecting the extent of considering study samples that are more varied in age.
 
@@ -1188,7 +1208,7 @@ figure5
 figure8
 ```
 
-### Sex
+## Sex
 
   Sex was reported in `r round(percent.sex)`% of the studies. In Figure 7, we show the proportion of studies that recruited male subjects, female subjects, both sexes or did not specify the sex of the participants. `r round(percent.sex.male)`% of the studies reporting sex only recruited male participants, while `r round(percent.sex.female)`% only employed females. Out of the studies focusing on a single gender, `r round(percent.sex.male.focus)`% of the male studies focused on a sex dependent feature, while `r round(percent.sex.female.focus)`% of the female studies did. `r round(percent.sex.age)`% of studies reported age by sex. 
   
@@ -1198,11 +1218,11 @@ figure9
 ```
 
 
-###  Ethnicity, education, profession and socio-economic status
+##  Ethnicity, education, profession and socio-economic status
 
   We examined the reporting of the demographic variables ethnicity, education, profession and socio-economic status. These demographics variables were reported in `r round(percent.education)`% of studies for education, `r round(percent.ethnicity)`% for ethnicity, `r round(percent.profession)`% for profession, and `r round(percent.ses)`% for socio-economic status. Figure 8 shows the distribution of this reporting across the years. Qualitatively, there is a clear increase of reporting additional demographic variables over time, with ethnicity being the most reported demographic variables across articles in more recent years.
 
-```{r, fig.cap="Reporting of education, ethnicity, profession and socio-economic status (SES).", warning=FALSE, message=FALSE}
+```{r, fig.cap="test", warning=FALSE, message=FALSE}
 figure10
 ```
   We furthermore examined the number of categories included for each of these demographic variables. In Figure 9, we show the number of categories reported for each variable among those articles that included it in a histogram. On overage, we find that the coding scheme for each of these variables in the included articles comprised between 3 and 4 variables. 
@@ -1212,12 +1232,12 @@ grid.arrange(figure11A, figure11B, figure11C, figure11D, nrow=2, top="Number of 
 ```
 
 
-### Study focus
+## Study focus
 
   We considered whether a given article reported on a specific, pre-defined group of people. We find `r round(percent.focus.sex)`% of articles focused on a sex dependent feature, while `r round(percent.focus.clinical)`% investigated a clinical feature. `r round(percent.focus.twins)`% of studies focused on twins, `r round(percent.focus.pregnant)`% on pregnant women, `r round(percent.focus.shift)`% on shift workers and `r round(percent.focus.students)`% on university students. 
 
 
-### Analysis disaggregation
+## Analysis disaggregation
 
   We examined the extent to which articles reported subgroup analyses of the data based on one or more of the reported demographic variables. Over time (Fig. 9), we see a distinct evolution of the extent to which subgroup analyses of the study sample were performed. The most common subgroup analyses involve disaggregting by sex and age, or both.  
   
