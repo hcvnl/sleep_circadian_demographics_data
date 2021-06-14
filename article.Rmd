@@ -134,8 +134,8 @@ Future research needs to identify:
 # Practice Points
 
 1. Published studies on circadian and sleep physiology should be carefully examined.
-1. Reporting of demographic variables should be done carefully and systematically.
-2. Inclusion and diversity of different populations across the field needs to be ensured.
+2. Reporting of demographic variables should be done carefully and systematically.
+3. Inclusion and diversity of different populations across the field needs to be ensured.
 
 
 # Introduction 
