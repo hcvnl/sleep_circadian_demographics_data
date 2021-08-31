@@ -1163,7 +1163,7 @@ figure12 <- ggplot(data.analysis, aes(x=article_year, y=per)) +
 
 ## Number of analyzed articles
 
-Out of `r as.numeric(nrow(data.original))` identified and pre-screened articles, we included and extracted data from `r as.numeric(nrow(data.included))` (`r round(percent.included)`%). The distribution of years in which the articles were published is non-uniform and we included and extracted data from more recent articles (Fig. 1). In addition, the representation of journals in the final list of articles is non-uniform, not least as the included journals will not have been available for the entire data collection period (1979 and onwards).
+Out of `r as.numeric(nrow(data.original))` identified and pre-screened articles, we included and extracted data from `r as.numeric(nrow(data.included))` (`r round(percent.included)`%). The distribution of years in which the articles were published is non-uniform and we included and extracted data from more recent articles (Fig. 1). In addition, the representation of journals in the final list of articles is non-uniform, as the included journals were not all available from the start date of our data collection (1979 and onwards).
   
 ```{r, fig.cap="Included and analyzed articles by year and journal. More recent articles are more represented, reflecting an overall increase in scientific output.", warning=FALSE, message=FALSE}
 figure1
