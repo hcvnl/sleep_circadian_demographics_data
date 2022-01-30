@@ -53,7 +53,7 @@ affiliation:
 authornote: |
  This work was funded by the Wellcome Trust (Sir Henry Wellcome Fellowship to MS 204686/Z/16/Z; Research Enrichment – Diversity & Inclusion WT 204686/Z/16/A) and Linacre College (Biomedical Sciences Junior Research Fellowship to MS).
 abstract: |
-  Many aspects of sleep and circadian physiology appear to be sensitive to participant-level characteristics. While recent research robustly highlights the importance of considering participant-level demographic information, it is not clear to what extent this information is available in the large body of already published literature. Here, we investigated study sample characteristics in the published sleep and chronobiology research over the past 40 years. 6,777 articles were identified and a random sample of 20% was included. The reporting of sample size, age, sex, gender, ethnicity, level of education, socio-economic status, and profession of the study population was scored, and any reported aggregate summary statistics for these variables were recorded. We found that while >90% of studies reported age or sex, all other variables were reported in <15% of cases. Sex balance greatly changed over the years, from a ~3:1 male to female ratio in the 1990s to a near-equal representation in the 2010s. We found that the majority of studies report at least sex or age, while other variables are typically not reported. Reporting quality is highly variable, indicating an opportunity to standardize reporting guidelines for participant-level characteristics to facilitate meta analyses.
+  Many aspects of sleep and circadian physiology appear to be sensitive to participant-level characteristics. While recent research robustly highlights the importance of considering participant-level demographic information, it is not clear to what extent this information is available in the large body of already published literature. Here, we investigated study sample characteristics in the published sleep and chronobiology research over the past 40 years. 6,777 articles were identified and a random sample of 20% was included. The reporting of sample size, age, sex, gender, ethnicity, level of education, socio-economic status, and profession of the study population was scored, and any reported aggregate summary statistics for these variables were recorded. We found that while >90% of studies reported age or sex, all other variables were reported in <25% of cases. Reporting quality is highly variable, indicating an opportunity to standardize reporting guidelines for participant-level characteristics to facilitate meta analyses.
   
 keywords          : "demographics, ethnicity, sex, research participants, reporting, publishing, meta-science"
 wordcount         : "3200"
@@ -86,23 +86,16 @@ library(papaja)
 library(corrplot)
 library(dplyr)
 library(ggplot2)
-library(ggthemes)
-library(ggExtra)
-library(ggsci)
-library(graphics)
 library(gridExtra)
 library(knitr)
 library(latticeExtra)
 library(mosaic)
 library(pracma)
-library(readr)
 library(readxl)
 library(reshape2)
 library(stats) 
 library(stringr)
-library(tibble)
 library(tidyr)
-library(lemon)
 
 r_refs("references_r.bib")
 ```
@@ -113,8 +106,7 @@ r_refs("references_r.bib")
 ## Change path if needed 
 
 # Set working directory
-#setwd("~/Demographics Review")
-setwd("~/Projects/sleep_circadian_demographics_data")
+setwd("~/Sleep Review/sleep_circadian_demographics_data-main")
 
 # Download scoring sheet 
 data.original <- read_excel("data.xlsx")
@@ -122,14 +114,14 @@ data.original <- read_excel("data.xlsx")
 
 # Summary
 
-In this article, we addressed the question of how representative, diverse and inclusive published research articles in sleep and chronobiology are. We analyzed a sample of >1,300 articles published in sleep research and chronobiology journals between 1979 and 2019 for its inclusion, reporting analysis of demographic variables of study participants, including age, sex, gender, ethnicity, level of education, socio-economic status, and profession.  We found that while >90% of studies reported age or sex, all other variables were reported in <10% of cases, with the frequency of reporting changing over time. We identify opportunities for improving the reporting of demographic variables.
+In this article, we addressed the question of how representative, diverse and inclusive published research articles in sleep and chronobiology are. We analyzed a sample of >1300 articles published in sleep research and chronobiology journals between 1979 and 2019 for its inclusion, reporting and analysis of study population characteristics, including age, sex, gender, ethnicity, level of education, socio-economic status, and profession.  We found that while >90% of studies reported age or sex, all other variables were reported in <25% of cases, with the frequency of reporting changing over time. We identify opportunities for improving the reporting of demographic variables.
 
 # Research Agenda
 
-Future research needs to identify:
-1. Schemas for reporting demographic variables in a harmonized way across geographical and cultural contexts;
-2. Gaps in the sleep and chronobiology literature with respect to understudied populations;
-3. Understand the extent to which research practices run counter the inclusion of diverse populations in research in all stages of the research cycle, and how this can exacerbate health inequities.
+Future research needs to:
+1. Establish schemas for reporting demographic variables in a harmonized way across geographical and cultural contexts;
+2. Identify gaps in the sleep and chronobiology literature with respect to understudied populations;
+3. Understand the extent to which research practices allow for the inclusion of diverse populations in all stages of the research cycle, and how this can exacerbate health inequities.
 
 # Practice Points
 
@@ -142,7 +134,7 @@ Future research needs to identify:
 
 There are large individual differences in sleep and circadian physiology [@van_dongen_individual_2005; @kerkhof_inter-individual_1985; @tankova_circadian_1994; @horne_individual_1977; @baehr_individual_2000; @burgess_individual_2008; @santhi_spectral_2012; @chellappa_individual_2021], demonstrating the need to consider sleep and circadian physiology at a participant-level. Some of these characteristics are systematically related to demographic variables, most notably sex [@redline_effects_2004; @santhi_sex_2016; @cain_sex_2010; @anderson_sexual_2020; @mong_sleep_2011], age [@redline_effects_2004; @espiritu_aging-related_2008; @mander_sleep_2017; @desforges_sleep_1990; @li_sleep_2018; @bliwise_sleep_1993; @benloucif_responsiveness_2006; @duffy_aging_2015] and ethnicity [@ahn_scoping_2021; @goldstein_sleep_2020; @eastman_blacks_2012; @eastman_circadian_2016]. Zooming out from the level of individual studies, there are significant inequities in sleep health depending on ethnicity and socio-economic status [@jackson_sleep_2020; @jackson_racialethnic_2020; @williams_racialethnic_2015; @jackson_workshop_2020; @jean-louis_importance_2016; @laposky_reducing_2016]. As compromised sleep has many knock-on effects, including negative effects on cardiovascular, metabolic, neurobehavioral and cognitive function, it is a key imperative to understand how demographic variables influence sleep and circadian rhythms.
 
-The extent to which a scientific field's findings are generalizable is a function of the representativeness of a given study sample, and the degree to which findings differ between, e.g., different sexes and ethnicity. In the domain of sex, a recent study reviewed the reporting and analysis of sex in biological sciences research [@woitowich_10-year_2020]. The authors found that while sex inclusion has significantly increased over the past 10 years [@beery_sex_2011], sex-based analysis has not improved, despite recent policies and funder mandates [@clayton_policy_2014]. The term "gender data gap" has recently been introduced, demonstrating that women have historically been excluded from biomedical research [@criado-perez_invisible_2020]. Similarly, the lack of diversity in biomedical and clinical research, and understudy of minorities in the presence of existing health inequities exacerbates these inequities [@oh_diversity_2015].
+The extent to which a scientific field's findings are generalizable is a function of the representativeness of a given study sample, and the degree to which findings differ between, e.g., different sexes and ethnicities. In the domain of sex, a recent study reviewed the reporting and analysis of sex in biological sciences research [@woitowich_10-year_2020]. The authors found that while sex inclusion has significantly increased over the past 10 years [@beery_sex_2011], sex-based analysis has not improved, despite recent policies and funder mandates [@clayton_policy_2014]. Indeed, in 2015 the United States' National Institutes of Health (NIH) issued a notice requiring grant holders to factor sex in the design, analysis and reporting of vertebrate and human studies, or to provide subtsantial justification for the study of a single sex [@nih-2015notice]. The term "gender data gap" has recently been introduced, demonstrating that women have historically been excluded from biomedical research [@criado-perez_invisible_2020]. Similarly, the lack of diversity in biomedical and clinical research, and understudy of minorities in the presence of existing health inequities exacerbates these inequities [@oh_diversity_2015]. Indeed, a recent review of contemporary dementia research reported a lack of demographic, racial, and geographic diversity [@Mooldijk2021].
 
 While research findings converge on participant-level demographic characteristics affecting outcomes, it is not clear to what extent this information is available in the large body of already published literature, nor to what extent it is even reported. Here, we address the question of participant-level demographic characteristics (age, sex, gender, ethnicity, level of education, socio-economic status, and profession of the study population) and reporting thereof in chronobiology and sleep research. We extracted the study sample characteristics in a total of 1355 randomly sampled publications across the 8 top (ranked by the Journal Impact Factor) chronobiology and sleep research and subjected them to a comprehensive analysis in terms of the inclusion, reporting and analysis of demographic variables.
 
@@ -150,7 +142,7 @@ While research findings converge on participant-level demographic characteristic
   
 ## Procedure
 
-Journal articles published between 1979 and 2019 (odd years) in the top eight sleep and chronobiology journals were considered. The list of possible target journals was based on a previously established list of journals implementing a hybrid strategy by consulting the Web of Science Master Journal List, domain-relevant expertise in sleep and chronobiology and consulting with a senior researcher with >25 years of experience in the field [@spitschan_transparency_2020]. From this previously derived list, we selected eight journals based on their five-year Impact Factor, and included *Journal of Pineal Research* (ISSN: 0742-3098 / 1600-079X; 2018 5-year IF: 12.197), *Sleep*  (0161-8105 / 1550-9109; 5.588), *Journal of Sleep Research* (0962-1105 / 1365-2869; 3.951), *Sleep Medicine* (1389-9457 / 1878-5506; 3.934), *Journal of Clinical Sleep Medicine* (1550-9389 / 1550-9397; 3.855), *Journal of Biological Rhythms* (0748-7304 / 1552-4531; 3.349), Behavioral Sleep Medicine (1540-2002 / 1540-2010; 3.162), and *Chronobiology International* (0742-0528 / 1525-6073; 2.998). While *Sleep Medicine Reviews* also features in the list of journals, we did not include it as it primarily publishes reviews.
+Journal articles published between 1979 and 2019 in the top eight sleep and chronobiology journals were considered. For practical reasons, the number of screened articles was reduced by only analyzing those published in odd years. The list of possible target journals was based on a previously established list of journals implementing a hybrid strategy by consulting the Web of Science Master Journal List, domain-relevant expertise in sleep and chronobiology and consulting with a senior researcher with >25 years of experience in the field [@spitschan_transparency_2020]. From this previously derived list, we selected eight journals based on their five-year Impact Factor, and included *Journal of Pineal Research* (ISSN: 0742-3098 / 1600-079X; 2018 5-year IF: 12.197), *Sleep*  (0161-8105 / 1550-9109; 5.588), *Journal of Sleep Research* (0962-1105 / 1365-2869; 3.951), *Sleep Medicine* (1389-9457 / 1878-5506; 3.934), *Journal of Clinical Sleep Medicine* (1550-9389 / 1550-9397; 3.855), *Journal of Biological Rhythms* (0748-7304 / 1552-4531; 3.349), Behavioral Sleep Medicine (1540-2002 / 1540-2010; 3.162), and *Chronobiology International* (0742-0528 / 1525-6073; 2.998). While *Sleep Medicine Reviews* also features in the list of journals, we did not include it as it primarily publishes reviews.
 
 ## Article inclusion
 
@@ -158,7 +150,7 @@ Journal articles published between 1979 and 2019 (odd years) in the top eight sl
 
 ## Review and article extraction
 
-All included articles were reviewed for eligibility and coded by RW. The reporting of sample size, age, sex, gender, ethnicity, level of education, socio-economic status, and profession of the study population was scored binarily (0 = not reported, 1 = reported), and any reported aggregate summary statistics for these variables were recorded. Funding source, geographical location and clinical focus of the article were examined, as well as whether data were analyzed by including any of the demographic variables as covariates. Data were coded in an Excel Spreadsheet and analyzed in R Studio (version 4.0.5). Reporting of funding, geographical location, and number of sub-studies for each article were investigated for the sample of articles that passed all eligibility criteria.
+All included articles were reviewed for eligibility and coded by RW. The reporting of sample size, age, sex, gender, ethnicity, level of education, socio-economic status, and profession of the study population was scored binarily (0 = not reported, 1 = reported), and any reported aggregate summary statistics for these variables were recorded (e.g., mean, median, etc.). Sample size referred to the total number of participants for a given study. If an article reported multiple studies, then it was analyzed for each of its individual study. Age was analyzed when recorded in days, weeks or years. Sex referred to biological sex, while gender referred to the social construction of sex. Since the language and system describing ethnicity, level of education, socio-economic status and profession differ between countries and individuals, all reporting was taken into account as long as there was a clear indication of what the variable represented. Additionally, funding source, geographical location and clinical focus of the article were examined, as well as whether data were analyzed by including any of the demographic variables as covariates. Data were coded in an Excel Spreadsheet and analyzed in R Studio (version 4.0.5).
 
 ```{r Inclusion & Exclusion, echo=FALSE, message=FALSE, warning=FALSE}
 # Filter reviewed articles
@@ -189,7 +181,7 @@ figure1 <- ggplot(data.included, aes(x=article_year)) +
   xlab("Year of publication") +
   ylab("Number of included articles") +
   labs(fill="Journal") +
-  ggtitle("Included and analysed articles by journal and year") +
+  ggtitle("Included and analyzed articles by journal and year") +
   scale_x_continuous(breaks=c(1979,1989,1999,2009,2019)) +
   scale_y_continuous(expand=c(0,0)) +
   scale_fill_viridis_d() +
@@ -219,14 +211,14 @@ data.eligibility <- data.eligibility %>%
                                                           "NA"))))))
 
 data.eligibility <- data.eligibility %>%
-  count(eligibility, article_year) %>%
+  plyr::count(vars=c("eligibility", "article_year")) %>%
   ungroup()
 
 data.eligibility <- data.eligibility %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(eligibility) %>%
-  mutate(per=round(100*n/total,3))
+  mutate(per=round(100*freq/total,3))
 
 data.eligibility$article_year <- as.numeric(data.eligibility$article_year)
 data.eligibility$per <- as.numeric(data.eligibility$per)
@@ -244,7 +236,7 @@ figure2 <- ggplot(data.eligibility, aes(x=article_year, y=per)) +
   labs(fill="Eligibility") +
   ggtitle("Inclusion and reasons for exclusion") +
   scale_x_continuous(breaks=c(1979,1989,1999,2009,2019)) +
-  scale_y_continuous(labels=c("0%","25%","50%","75%","100%"), expand=c(0,0)) +
+  scale_y_continuous(breaks=c(0,25,50,75,100), labels=c("0%","25%","50%","75%","100%"), expand=c(0,0)) +
   scale_fill_manual(values=c("#29AF7FFF","#2D708EFF","#D8DE29FF","#482677FF")) +
   theme(axis.title=element_text(face="bold", size=12), 
         axis.text=element_text(colour="black", face="bold"), 
@@ -255,11 +247,11 @@ figure2 <- ggplot(data.eligibility, aes(x=article_year, y=per)) +
 
 ## Pre-registration
 
-We pre-registered our protocol (specified using the PRISMA-P template [@shamseer_preferred_2015; @prisma-p_group_preferred_2015]) on the Open Science Framework (https://osf.io/cu3we/).
+We pre-registered our protocol (specified using the PRISMA-P template [@shamseer_preferred_2015; @prisma-p_group_preferred_2015]) on the Open Science Framework (https://osf.io/cu3we/). For thorough details on the screening and analysis methods, see the protocol.
 
 ## Materials, data and code availability
 
-All data underlying this manuscript are available on a public GitHub repository (https://github.com/hcvnl/sleep_circadian_demographics_data). The article was written in R [@R-base] using RMarkdown and papaja [@R-papaja], employing a series of additional R packages [@R-corrplot2017; @R-dplyr; @R-ggExtra; @R-ggformula; @R-ggplot2; @R-ggridges; @R-ggsci; @R-ggstance; @R-ggthemes; @R-gridExtra; @R-knitr; @R-lattice; @R-latticeExtra; @R-lemon; @R-Matrix; @R-mosaic; @R-mosaicData; @R-pracma; @R-readr; @R-readxl; @R-reshape2; @R-stringr; @R-tibble; @R-tidyr] and is fully reproducible.
+All data underlying this manuscript are available on a public GitHub repository (https://github.com/hcvnl/sleep_circadian_demographics_data). The article was written in R [@R-base] using RMarkdown and papaja [@R-papaja], employing a series of additional R packages [@R-corrplot2017; @R-dplyr; @R-ggplot2; @R-gridExtra; @R-knitr; @R-latticeExtra; @R-mosaic; @R-mosaicData; @R-pracma; @R-readxl; @R-reshape2; @R-stringr; @R-tidyr] and is fully reproducible.
 
 ```{r Funding, include=FALSE}
 # Select articles that report funding
@@ -288,15 +280,15 @@ data.funding$funding <- as.factor(data.funding$funding)
 
 # Count number of articles for funding condition by year of publication
 data.funding <- data.funding %>%
-  count(funding, article_year) %>%
+  plyr::count(vars=c("funding", "article_year")) %>%
   ungroup()
 
 # Compute proportion of articles per sex category by year of publication
 data.funding <- data.funding %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(funding, add=TRUE) %>%
-  mutate(per=round(100*n/total,3))
+  mutate(per=round(100*freq/total,3))
 data.funding$article_year <- as.numeric(data.funding$article_year)
 data.funding$per <- as.numeric(data.funding$per)
 
@@ -312,7 +304,7 @@ figure3 <- ggplot(data.funding, aes(x=article_year, y=per)) +
   labs(fill="") +
   scale_fill_manual(values=c("#482677FF","#DCE319FF","#FDE725FF")) +
   scale_x_continuous(breaks=c(1979,1989,1999,2009,2019)) +
-  scale_y_continuous(labels=c("0%","25%","50%","75%","100%"), expand=c(0,0)) +
+  scale_y_continuous(breaks=c(0,25,50,75,100), labels=c("0%","25%","50%","75%","100%"), expand=c(0,0)) +
   theme(axis.title=element_text(face="bold", size=12), 
         axis.text=element_text(colour="black", face="bold"), 
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8),
@@ -440,7 +432,7 @@ percent.country.multiple <- round(nrow(country.multiple)/nrow(data.included) * 1
 # Select articles where a single country is reported or inferred
 data.country <- data.included %>%
   filter(!grepl(",", study_country_values)) %>%
-  count(study_country_values, article_year) %>%
+  plyr::count(vars=c("study_country_values", "article_year")) %>%
   ungroup()
 
 # Change all countries that are not the 8 most represented countries to 'Other'
@@ -454,14 +446,14 @@ data.country$study_country_values[data.country$study_country_values != "AUS" &
                                     data.country$study_country_values != "JPN"] <- "Other"
 
 # Sum rows with 'Other' by year
-data.country <- aggregate(cbind(n) ~ study_country_values + article_year, data=data.country, FUN=sum)
+data.country <- aggregate(cbind(freq) ~ study_country_values + article_year, data=data.country, FUN=sum)
 
 # Compute proportion of articles per country by year of publication
 data.country <- data.country %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(study_country_values) %>%
-  mutate(per=round(100*n/total,3))
+  mutate(per=round(100*freq/total,3))
 data.country$article_year <- as.numeric(data.country$article_year)
 data.country$per <- as.numeric(data.country$per)
 
@@ -476,7 +468,7 @@ figure4 <- ggplot(data.country, aes(x=article_year, y=per)) +
   ggtitle("Geographical location of included articles") +
   labs(fill="Country") +
   scale_x_continuous(breaks=c(1979,1989,1999,2009,2019)) +
-  scale_y_continuous(labels=c("0%","25%","50%","75%","100%"), expand=c(0,0)) +
+  scale_y_continuous(breaks=c(0,25,50,75,100), labels=c("0%","25%","50%","75%","100%"), expand=c(0,0)) +
   scale_fill_viridis_d(direction=-1) +
   theme(axis.title=element_text(face="bold", size=12), 
         axis.text=element_text(colour="black", face="bold"), 
@@ -552,6 +544,8 @@ data.age.year$age_reported_other_yn[data.age.year$age_reported_other_yn == 0] <-
 # Replace NAs
 data.age.year[is.na(data.age.year)] <- -1
 
+#data.age.year$article_year <- as.factor(data.age.year$article_year)
+
 # Group by year and compute average for each sex variable
 age.corr.year <- data.age.year %>%
   group_by(article_year) %>%
@@ -559,7 +553,7 @@ age.corr.year <- data.age.year %>%
             sd=mean(age_reported_sd_yn), median=mean(age_reported_median_yn),
             min=mean(age_reported_min_yn), max=mean(age_reported_max_yn),
             iqr=mean(age_reported_iqr_yn),
-            other=mean(age_reported_other_yn))  %>%
+            other=mean(age_reported_other_yn)) %>%
   ungroup()
 
 age.corr.year <- age.corr.year %>%
@@ -572,7 +566,7 @@ age.corr.year <- melt(age.corr.year,id.vars='article_year',
                                      'max','iqr','other','total'))
 
 # Heat map of reporting of age variables by year of publication
-figure6 <- ggplot(data=age.corr.year, aes(x=variable, y=article_year, fill=value)) +
+figure6A <- ggplot(data=age.corr.year, aes(x=variable, y=article_year, fill=value)) +
   geom_tile() +
   theme_apa() +
   ylab(label="Year of publication") +
@@ -625,7 +619,7 @@ age.corr.journal <- melt(age.corr.journal,id.vars='article_journal',
                                         'max','iqr','other','total'))
 
 # Heat map of reporting of age variables by journal of publication
-figure7 <- ggplot(data=age.corr.journal, 
+figure6B <- ggplot(data=age.corr.journal, 
                    aes(x=variable, y=article_journal, fill=value)) +
   geom_tile() +
   theme_apa() +
@@ -678,7 +672,7 @@ data.age.mean$age_reported_mean_value <- as.numeric(data.age.mean$age_reported_m
 summary(lm(age_reported_mean_value ~ article_year, data=data.age.mean))
 
 # Violin plot with regression line and equation for mean age by year of publication
-figure8 <- ggplot(data=data.age.mean, aes(x=article_year, y=age_reported_mean_value)) +
+figure7 <- ggplot(data=data.age.mean, aes(x=article_year, y=age_reported_mean_value)) +
   geom_smooth(method="lm", color="#440154FF") +
   geom_point(size=1, color="#33638DFF") +
   theme_apa() +
@@ -691,7 +685,6 @@ figure8 <- ggplot(data=data.age.mean, aes(x=article_year, y=age_reported_mean_va
         axis.text=element_text(colour="black", face="bold"), 
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8))
 ```
-
 
 ```{r Sex, echo=FALSE, message=FALSE, warning=FALSE}
 # Select sex variables       
@@ -720,20 +713,20 @@ data.sex <- data.sex %>%
 
 # Count number of articles for each sex condition by year of publication
 data.sex <- data.sex %>%
-  count(report, article_year) %>%
+  plyr::count(vars=c("report", "article_year")) %>%
   ungroup()
 
 # Compute proportion of articles per sex category by year of publication
 data.sex <- data.sex %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(report, add=TRUE) %>%
-  mutate(per=round(100*n/total,3))
+  mutate(per=round(100*freq/total,3))
 data.sex$article_year <- as.numeric(data.sex$article_year)
 data.sex$per <- as.numeric(data.sex$per)
 
 # Stacked bar chart of sex reporting by year of publication
-figure9 <- ggplot(data.sex, aes(x=article_year, y=per)) +
+figure8 <- ggplot(data.sex, aes(x=article_year, y=per)) +
   geom_col(aes(fill=factor(report, levels=c("Unspecified",
                                             "Female",
                                             "Both sexes",
@@ -745,7 +738,7 @@ figure9 <- ggplot(data.sex, aes(x=article_year, y=per)) +
   labs(fill="Sex") +
   scale_fill_manual(values=c("#482677FF","#D8DE29FF","#29AF7FFF","#2D708EFF")) +
   scale_x_continuous(breaks=c(1979,1989,1999,2009,2019)) +
-  scale_y_continuous(labels=c("0%","25%","50%","75%","100%"), expand=c(0,0)) +
+  scale_y_continuous(breaks=c(0,25,50,75,100), labels=c("0%","25%","50%","75%","100%"), expand=c(0,0)) +
   theme(axis.title=element_text(face="bold", size=12), 
         axis.text=element_text(colour="black", face="bold"), 
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8),
@@ -812,7 +805,12 @@ data.sex.age <- data %>%
 percent.sex.age <- round(nrow(data.sex.age)/nrow(data) * 100, 2)
 ```
 
-```{r Other demographics, echo=FALSE, message=FALSE, warning=FALSE}
+```{r Gender, echo=FALSE, message=FALSE, warning=FALSE}
+data.gender <- data %>% 
+  filter(gender_reported_yn==1)
+```
+
+```{r Other demographics, message=FALSE, warning=FALSE, include=FALSE}
 # Select single studies and other demographic variables
 data.demo <- data %>%
   select(article_year, ethnicity_reported_yn, 
@@ -828,51 +826,51 @@ data.demo <- data.demo %>%
 
 # Count number of articles for each demographic variable by year of publication
 data.demo.education <- data.demo %>%
-  count(education, article_year) %>%
+  plyr::count(vars=c("education", "article_year")) %>%
   ungroup()
 data.demo.ethnicity <- data.demo %>%
-  count(ethnicity, article_year) %>%
+  plyr::count(vars=c("ethnicity", "article_year")) %>%
   ungroup()
 data.demo.profession <- data.demo %>%
-  count(profession, article_year) %>%
+  plyr::count(vars=c("profession", "article_year")) %>%
   ungroup()
 data.demo.ses <- data.demo %>%
-  count(ses, article_year) %>%
+  plyr::count(vars=c("ses", "article_year")) %>%
   ungroup()
 
 # Compute proportion of articles by year of publication
 data.demo.education <- data.demo.education %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(education, add=TRUE) %>%
-  mutate(per=round(100*n/total,3),
+  mutate(per=round(100*freq/total,3),
          variable="edu") %>%
   select(article_year, variable, education, per)
 colnames(data.demo.education)[3] <- "report"
 
 data.demo.ethnicity <- data.demo.ethnicity %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(ethnicity, add=TRUE) %>%
-  mutate(per=round(100*n/total,3),
+  mutate(per=round(100*freq/total,3),
          variable="ethni") %>%
   select(article_year, variable, ethnicity, per)
 colnames(data.demo.ethnicity)[3] <- "report"
 
 data.demo.profession <- data.demo.profession %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(profession, add=TRUE) %>%
-  mutate(per=round(100*n/total,3),
+  mutate(per=round(100*freq/total,3),
          variable="prof") %>%
   select(article_year, variable, profession, per)
 colnames(data.demo.profession)[3] <- "report"
 
 data.demo.ses <- data.demo.ses %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(ses, add=TRUE) %>%
-  mutate(per=round(100*n/total,3),
+  mutate(per=round(100*freq/total,3),
          variable="ses") %>%
   select(article_year, variable, ses, per)
 colnames(data.demo.ses)[3] <- "report"
@@ -889,9 +887,9 @@ data.demo.reported <- data.demo %>%
   filter(report == "No") %>%
   mutate(per = (100 - per))
 
-figure10 <- ggplot(data.demo.reported, aes(x=article_year, y=per, color=factor(variable))) +
-  geom_point(size=2.5) +
-  geom_line(linetype="dashed") +
+figure9 <- ggplot(data.demo.reported, aes(x=article_year, y=per, color=factor(variable))) +
+  geom_point(size=1.2) +
+  geom_line() +
   theme_apa() +
   xlab("Year of publication") +
   ylab("Proportion of articles") +
@@ -899,13 +897,14 @@ figure10 <- ggplot(data.demo.reported, aes(x=article_year, y=per, color=factor(v
   scale_color_viridis_d(name="Variable reported", 
                         labels=c("Education","Ethnicity","Profession","Socio-economic status")) +
   scale_x_continuous(limits=c(1979,2019), breaks=c(1979,1989,1999,2009,2019)) +
-  scale_y_continuous(labels=c("0%","25%","50%","75%","100%"), limits=c(0,100)) +
+  scale_y_continuous(breaks=c(0,25,50,75,100), labels=c("0%","25%","50%","75%","100%"), limits=c(0,100)) +
   theme(axis.title=element_text(face="bold", size=12), 
         axis.text=element_text(colour="black", face="bold"),
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8),
         legend.title=element_text(face="bold", size=12),
         legend.margin=margin(0,0,0,0), legend.box.margin=margin(-10,0,-10,-10)) 
 
+#Education####
 # Compute percentage of articles that report education
 data.education <- data %>%
   filter(education_reported_mean_yn == 1 | education_reported_yn == 1)
@@ -914,39 +913,86 @@ percent.education <- round(nrow(data.education)/nrow(data) * 100, 2)
 # Compute distribution of the number of categories reported for education
 data.education$education_reported_numcategory <- as.numeric(data.education$education_reported_numcategory)
 
-figure11A <- ggplot(data=data.education, aes(x=education_reported_numcategory)) +
+figure10A <- ggplot(data=data.education, aes(x=education_reported_numcategory)) +
   geom_histogram(binwidth=1, aes(y=..density..), colour="black", fill="#2D708EFF") +
   geom_vline(aes(xintercept=mean(education_reported_numcategory, na.rm=TRUE)), 
              color="#D8DE29FF", size=1) +
   theme_apa() +
-  ylab("Density") +
+  ylab("Proportion of articles") +
   xlab("Education") +
   scale_x_continuous(limits=c(0.5,8.5), breaks=c(1,2,3,4,5,6,7,8)) +
-  scale_y_continuous(limits=c(0,0.5), expand=c(0,0)) +
-  theme(axis.title=element_text(face="bold", size=12), 
-        axis.text=element_text(colour="black", face="bold"),
+  scale_y_continuous(limits=c(0,0.5), expand=c(0,0), breaks=c(0,0.2,0.4), labels=c("0%","20%","40%")) +
+  theme(axis.title=element_text(face="bold", size=11), 
+        axis.text=element_text(colour="black", face="bold", size=10),
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8)) 
 
+# compute the education category names into a list
+education.category.list <- tolower(data.education$education_reported_categories)
+
+# check the category combination that is most frequent 
+table(education.category.list)
+
+# compute the number of articles reporting education as a mean
+data.education.mean <- data.education %>%
+  filter(education_reported_mean_yn==1)
+percent.education.mean <- round(nrow(data.education.mean)/nrow(data.education) * 100, 2)
+
+data.education.mean$education_reported_mean <- as.numeric(data.education.mean$education_reported_mean)
+data.education.mean <- data.education.mean %>%
+  filter(!is.na(education_reported_mean))
+mean.education <- mean(data.education.mean$education_reported_mean)
+
+#Ethnicity####
 # Compute percentage of articles that report ethnicity
 data.ethnicity <- data %>%
   filter(ethnicity_reported_yn == 1)
 percent.ethnicity <- round(nrow(data.ethnicity)/nrow(data) * 100, 2)
 
+# Compute percentage of articles where people can select multiple ethnicities out of those that report ethnicity
+data.ethnicity.multiple <- data %>%
+  filter(ethnicity_multiple_categories_yn == 1)
+
+percent.ethnicity.multiple <- round(nrow(data.ethnicity.multiple)/nrow(data.ethnicity) * 100, 2)
+
 # Compute distribution of the number of categories reported for ethnicity
 data.ethnicity$ethnicity_reported_numcategory <- as.numeric(data.ethnicity$ethnicity_reported_numcategory)
-figure11B <- ggplot(data=data.ethnicity, aes(x=ethnicity_reported_numcategory)) +
+figure10B <- ggplot(data=data.ethnicity, aes(x=ethnicity_reported_numcategory)) +
   geom_histogram(binwidth=1, aes(y=..density..), colour="black", fill="#2D708EFF") +
   geom_vline(aes(xintercept=mean(ethnicity_reported_numcategory, na.rm=TRUE)), 
              color="#D8DE29FF", size=1) +
   theme_apa() +
-  ylab("Density") +
+  ylab("Proportion of articles") +
   xlab("Ethnicity") +
   scale_x_continuous(limits=c(0.5,8.5), breaks=c(1,2,3,4,5,6,7,8)) +
-  scale_y_continuous(limits=c(0,0.5), expand=c(0,0)) +
-  theme(axis.title=element_text(face="bold", size=12), 
-        axis.text=element_text(colour="black", face="bold"),
+  scale_y_continuous(limits=c(0,0.5), expand=c(0,0), breaks=c(0,0.2,0.4), labels=c("0%","20%","40%")) +
+  theme(axis.title=element_text(face="bold", size=11), 
+        axis.text=element_text(colour="black", face="bold", size=10),
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8)) 
 
+# compute the ethnicity category names into a list
+ethnicity.category.list <- tolower(data.ethnicity$ethnicity_reported_categories)
+
+# check the category combination that is most frequent 
+table(ethnicity.category.list)
+
+# split the category combinations and convert to lower case letters
+ethnicity.category.list <- as.list(strsplit(ethnicity.category.list, ","))
+ethnicity.category.list <- unlist(ethnicity.category.list)
+
+# count the number of occurences for each category
+table(ethnicity.category.list)
+
+# count the number of occurrences for "white"/"caucasian", "african american"/"black", and "other"
+n.ethnicity.white <- sum(str_count(ethnicity.category.list, "white"),str_count(ethnicity.category.list, "caucasian"),str_count(ethnicity.category.list, "non hispanic white"),str_count(ethnicity.category.list, "white caucasian"),str_count(ethnicity.category.list, "white american"))
+n.ethnicity.black <- sum(str_count(ethnicity.category.list, "black"),str_count(ethnicity.category.list, "african american"),str_count(ethnicity.category.list, "african-american"),str_count(ethnicity.category.list, "non hispanic black"))
+n.ethnicity.other <- sum(str_count(ethnicity.category.list, "other"))
+
+# compute percentage of articles where white vs black is reported as an ethnicity
+percent.ethnicity.white <- round(n.ethnicity.white/nrow(data.ethnicity) * 100, 2)
+percent.ethnicity.black <- round(n.ethnicity.black/nrow(data.ethnicity) * 100, 2)
+percent.ethnicity.other <- round(n.ethnicity.other/nrow(data.ethnicity) * 100, 2)
+
+#Profession####
 # Compute percentage of articles that report profession
 data.profession <- data %>%
   filter(profession_reported_yn == 1)
@@ -954,38 +1000,67 @@ percent.profession <- round(nrow(data.profession)/nrow(data) * 100, 2)
 
 # Compute distribution of the number of categories reported for profession
 data.profession$profession_reported_numcategory <- as.numeric(data.profession$profession_reported_numcategory)
-figure11C <- ggplot(data=data.profession, aes(x=profession_reported_numcategory)) +
+figure10C <- ggplot(data=data.profession, aes(x=profession_reported_numcategory)) +
   geom_histogram(binwidth=1, aes(y=..density..), colour="black", fill="#2D708EFF") +
   geom_vline(aes(xintercept=mean(profession_reported_numcategory, na.rm=TRUE)), 
              color="#D8DE29FF", size=1) +
   theme_apa() +
-  ylab("Density") +
+  ylab("Proportion of articles") +
   xlab("Profession") +
   scale_x_continuous(limits=c(0.5,8.5), breaks=c(1,2,3,4,5,6,7,8)) +
-  scale_y_continuous(limits=c(0,0.5), expand=c(0,0)) +
-  theme(axis.title=element_text(face="bold", size=12), 
-        axis.text=element_text(colour="black", face="bold"),
+  scale_y_continuous(limits=c(0,0.5), expand=c(0,0), breaks=c(0,0.2,0.4), labels=c("0%","20%","40%")) +
+  theme(axis.title=element_text(face="bold", size=11), 
+        axis.text=element_text(colour="black", face="bold", size=10),
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8)) 
 
+# compute the profession category names into a list
+profession.category.list <- tolower(data.profession$profession_reported_categories)
+
+# check the category combination that is most frequent 
+table(profession.category.list)
+
+# split the category combinations
+profession.category.list <- as.list(strsplit(profession.category.list, ","))
+profession.category.list <- unlist(profession.category.list)
+
+# count the number of occurences for each category
+table(profession.category.list)
+
+# count the number of occurrences for "unemployed"
+n.profession.unemployed <- sum(str_count(profession.category.list, "unemployed"))
+
+# compute percentage of articles where this is reported
+percent.profession.unemployed <- round(n.profession.unemployed/nrow(data.profession) * 100, 2)
+
+#SES####
 # Compute percentage of articles that report ses
 data.ses <- data %>%
-  filter(ses_reported_yn ==1)
+  filter(ses_reported_yn==1)
 percent.ses <- round(nrow(data.ses)/nrow(data) * 100, 2)
 
 # Compute distribution of the number of categories reported for ses
 data.ses$ses_reported_numcategory <- as.numeric(data.ses$ses_reported_numcategory)
-figure11D <- ggplot(data=data.ses, aes(x=ses_reported_numcategory)) +
+figure10D <- ggplot(data=data.ses, aes(x=ses_reported_numcategory)) +
   geom_histogram(binwidth=1, aes(y=..density..), colour="black", fill="#2D708EFF") +
   geom_vline(aes(xintercept=mean(ses_reported_numcategory, na.rm=TRUE)), 
              color="#D8DE29FF", size=1) +
   theme_apa() +
-  ylab("Density") +
+  ylab("Proportion of articles") +
   xlab("SES") +
   scale_x_continuous(limits=c(0.5,8.5), breaks=c(1,2,3,4,5,6,7,8)) +
-  scale_y_continuous(limits=c(0,0.5), expand=c(0,0)) +
-  theme(axis.title=element_text(face="bold", size=12), 
-        axis.text=element_text(colour="black", face="bold"),
+  scale_y_continuous(limits=c(0,0.5), expand=c(0,0), breaks=c(0,0.2,0.4), labels=c("0%","20%","40%")) +
+  theme(axis.title=element_text(face="bold", size=11), 
+        axis.text=element_text(colour="black", face="bold", size=10),
         axis.line=element_line(size=0.8), axis.ticks=element_line(size=0.8)) 
+
+# compute the ses category names into a list
+ses.category.list <- tolower(data.ses$ses_reported_categories)
+
+# check the category combination that is most frequent 
+table(ses.category.list)
+
+# compute percentage of articles where ses is based on income with numbers
+percent.ses.income <- 100 - round(21/nrow(data.ses) * 100, 2)
 ```
 
 ```{r Focus, echo=FALSE, message=FALSE, warning=FALSE}
@@ -1058,7 +1133,6 @@ data.focus.pregnant <- data %>%
 percent.focus.pregnant <- round(nrow(data.focus.pregnant)/nrow(data) * 100, 2)
 ```
 
-
 ```{r Disaggregation, echo=FALSE, warning=FALSE, message=FALSE}
 # Select articles that report no difference in results based on age vs use age as a covariate
 data.diff.age <- data %>%
@@ -1128,20 +1202,20 @@ data.analysis <- data.analysis %>%
 
 # Count the number of articles for each condition by year of publication
 data.analysis <- data.analysis %>%
-  count(report, article_year) %>%
+  plyr::count(vars=c("report", "article_year")) %>%
   ungroup()
 
 # Compute the proportion of articles per condition by year of publication
 data.analysis <- data.analysis %>%
   group_by(article_year) %>%
-  mutate(total=sum(n)) %>%
+  mutate(total=sum(freq)) %>%
   group_by(report, add=TRUE) %>%
-  mutate(per=round(100*n/total,3))
+  mutate(per=round(100*freq/total,3))
 data.analysis$article_year <- as.numeric(data.analysis$article_year)
 data.analysis$per <- as.numeric(data.analysis$per)
 
 # Stacked bar chart of the use of demographic variables in the analysis by year of publication
-figure12 <- ggplot(data.analysis, aes(x=article_year, y=per)) +
+figure11 <- ggplot(data.analysis, aes(x=article_year, y=per)) +
   geom_col(aes(fill=report)) +
   theme_apa() +
   xlab("Year of publication") +
@@ -1163,15 +1237,15 @@ figure12 <- ggplot(data.analysis, aes(x=article_year, y=per)) +
 
 ## Number of analyzed articles
 
-Out of `r as.numeric(nrow(data.original))` identified and pre-screened articles, we included and extracted data from `r as.numeric(nrow(data.included))` (`r round(percent.included)`%). The distribution of years in which the articles were published is non-uniform and we included and extracted data from more recent articles (Fig. 1). In addition, the representation of journals in the final list of articles is non-uniform, as the included journals were not all available from the start date of our data collection (1979 and onwards).
+Out of `r as.numeric(nrow(data.original))` identified and pre-screened articles, we included and extracted data from `r as.numeric(nrow(data.included))` (`r round(percent.included)`%). The distribution of years in which the articles were published is non-uniform and the proportion of included and extracted data is greater for more recent articles (Fig. 1). In addition, the representation of journals in the final list of articles is also non-uniform, as the included journals were not all available from the start date of our data collection (1979 onwards).
   
-```{r, fig.cap="Included and analyzed articles by year and journal. More recent articles are more represented, reflecting an overall increase in scientific output.", warning=FALSE, message=FALSE}
+```{r, fig.cap="Included and analyzed articles by year and journal of publication. Recent articles are more widely represented, reflecting an overall increase in scientific output.", warning=FALSE, message=FALSE}
 figure1
 ```
 
 We also examined reasons for exclusion among the articles that we did not include and extract data from. These are given in Figure 2. Reasons for exclusion vary somewhat between different years, with articles not reporting original research being excluded at the highest rate on average.
 
-```{r, fig.cap="Normalised distributions of included and excluded articles.", warning=FALSE, message=FALSE}
+```{r, fig.cap="Percentage of included and excluded articles by year of publication, with reasons for exclusion.", warning=FALSE, message=FALSE}
 figure2
 ```
 
@@ -1185,7 +1259,7 @@ figure3
 
 ## Geographical location
   
-  `r round(100-percent.country.multiple)`% of articles were conducted in a single country. The geographical location of the study was explicitly reported in `r round(percent.country.reported)`% of studies. The country of study was inferred for the rest of the sampled articles. Inference was primarily based on the first author's affiliation. Overall, `r nrow(country.single)` countries were represented. `r round(percent.country.multiple)`% of articles reported multiple countries of study. Figure 4 shows the distribution of study location across time with the eight most represented countries. Across all years, the US is the most represented country.
+  `r round(100-percent.country.multiple)`% of articles were conducted in a single country. The geographical location of the study was explicitly reported in `r round(percent.country.reported)`% of studies. The country of study was inferred for the rest of the sampled articles. Inference was primarily based on the first author's affiliation. Overall, `r nrow(country.single)` countries were represented. Figure 4 shows the distribution of study location across time with the eight most represented countries. Across all years, the US is the most represented country and only three studies were primarily conducted in Africa (Nigeria, Senegal and Tunisia).
   
 ```{r, fig.cap="Gegraphical location of the studies. The eight most represented countries across the entire dataset are individually shown.", warning=FALSE, message=FALSE}
 figure4
@@ -1193,7 +1267,7 @@ figure4
 
 ## Sample size
 
-  We examined whether sample size was reported in studies, and the sample sizes reported. Overall, sample size was reported in `r round(percent.ss)`% of studies. We furthermore examined the distribution of samples sizes as a function of the publication year of the article (Fig. 5), showing a wider distribution of sample sizes in more recent articles.
+  We examined whether sample size was reported in studies, and the numbers recorded. Overall, sample size was reported in `r round(percent.ss)`% of studies. We furthermore examined the distribution of samples sizes as a function of the publication year of the article (Fig. 5), showing a wider distribution of sample sizes in more recent articles.
 
 ```{r, fig.cap="Sample size of the recruited volunteers as a function of publication year. Numbers are computed on a log-10 scale.", warning=FALSE, message=FALSE}
 figure5
@@ -1201,49 +1275,62 @@ figure5
 
 ## Age
 
-  `r round(percent.age)`% of articles reported a variable describing age. Overall, the average mean age of the study populations was `r round(mean(data.age.mean$age_reported_mean_value))` years old. We examined the extent to which the mean age across studies differed widely as a function of publication year (Fig. 6), and found that the mean age is much more widely varied in later years, likely reflecting the extent of considering study samples that are more varied in age.
+  `r round(percent.age)`% of articles reported a variable describing age, such as the mean, standard deviation, median, minimum, maximum and interquartile range. Overall, the median and interquartile range were the least reported variables for sex (Fig. 6). The minimum and maximum age were the most employed variables in 1979, while their reporting decreased throughout the years compared to other variables. On another hand, the standard deviation of the mean was increasingly reported throughout the years. Trends for specific journals were also observed, such as the substantial use of the min/max variables in *Journal of Pineal Research*, and the lack of in *Journal of Clinical Sleep Medicine*.
+  
+```{r, warning=FALSE, message=FALSE}
+figure6A
+```
+
+```{r, fig.cap="Reporting of various age variables by year (top) and journal (bottom) of publication. SD = standard deviation of the mean, IQR = interquartile range.", warning=FALSE, message=FALSE}
+figure6B
+```
+
+  Overall, the average mean age of the study populations was `r round(mean(data.age.mean$age_reported_mean_value))` years old. We examined the extent to which the mean age differed across studies as a function of publication year (Fig. 7), and found that the mean age is much more widely varied in later years, likely reflecting the extent of considering study samples that are more diversified in age.
 
 
 ```{r, fig.cap="Evolution of mean age in included studies as a function of publication year. Fit shown is a linear fit (±95%CI).", warning=FALSE, message=FALSE}
-figure8
+figure7
 ```
 
-## Sex
+## Sex & Gender
 
-  Sex was reported in `r round(percent.sex)`% of the studies. In Figure 7, we show the proportion of studies that recruited male subjects, female subjects, both sexes or did not specify the sex of the participants. `r round(percent.sex.male)`% of the studies reporting sex only recruited male participants, while `r round(percent.sex.female)`% only employed females. Out of the studies focusing on a single gender, `r round(percent.sex.male.focus)`% of the male studies focused on a sex dependent feature, while `r round(percent.sex.female.focus)`% of the female studies did. `r round(percent.sex.age)`% of studies reported age by sex. 
+  Sex was reported in `r round(percent.sex)`% of the studies. In Figure 8, we show the proportion of studies that recruited male subjects, female subjects, both sexes or did not specify the sex of the participants. Overall, `r round(percent.sex.male)`% of the studies reporting sex only recruited male participants, while `r round(percent.sex.female)`% only employed females. Out of the studies focusing on a single sex, `r round(percent.sex.male.focus)`% of the male studies focused on a sex dependent feature, while `r round(percent.sex.female.focus)`% of the female studies did. `r round(percent.sex.age)`% of studies reported age by sex. 
+  
+  Gender was reported in only one article, reflecting the lack of inclusion for gender identity. In the reporting gender, participants were described as male, female or transgender. 
   
 
 ```{r, fig.cap="Sex inclusion by year. Proportion of studies that recruited male subjects, female subjects, both sexes, or did not specify the sex of the participants.", warning=FALSE, message=FALSE}
-figure9
+figure8
 ```
 
 
 ##  Ethnicity, education, profession and socio-economic status
 
-  We examined the reporting of the demographic variables ethnicity, education, profession and socio-economic status. These demographics variables were reported in `r round(percent.education)`% of studies for education, `r round(percent.ethnicity)`% for ethnicity, `r round(percent.profession)`% for profession, and `r round(percent.ses)`% for socio-economic status. Figure 8 shows the distribution of this reporting across the years. Qualitatively, there is a clear increase in the reporting of additional demographic variables over time, with ethnicity being the most reported demographic variable across articles in more recent years.
+  We examined the reporting of further demographic variables, including ethnicity, education, socio-economic status and profession. These demographics variables were reported in `r round(percent.education)`% of studies for education, `r round(percent.ethnicity)`% for ethnicity, `r round(percent.ses)`% for socio-economic status and `r round(percent.profession)`% for profession. Figure 9 shows the distribution of this reporting across the years. Qualitatively, there is a clear increase in the reporting of additional demographic variables over time, with ethnicity being the most reported demographic variable across articles in more recent years. Participants could choose multiple categories for ethnicity in `r round(percent.ethnicity.multiple)`% of the studies reporting this variable. The mean number of years of education was reported in `r round(percent.education.mean)`% of articles, and was `r round(mean.education)` years of study overall.
 
-```{r, fig.cap="test", warning=FALSE, message=FALSE}
-figure10
+```{r, fig.cap="Reporting of education, ethnicity, profession and socio-economic status by year of publication.", warning=FALSE, message=FALSE}
+figure9
 ```
-  We furthermore examined the number of categories included for each of these demographic variables. In Figure 9, we show the number of categories reported for each variable among those articles that included it in a histogram. On overage, we find that the coding scheme for each of these variables in the included articles comprised between three and four variables. 
+  
+  We furthermore examined the number of categories included for each of these demographic variables. In Figure 10, we show the number of categories reported for each variable among those articles that included it. On overage, we find that the coding scheme for each of these comprised between three and four variables. Education was reported as a range of years of study, degree level, or a subjective measure such as "low, medium, high". The most common categories for ethnicity were "white/caucasian", "black/african american" and "other", and were mentioned in `r round(percent.ethnicity.white)`%, `r round(percent.ethnicity.black)`% and `r round(percent.ethnicity.other)`% of studies respectively. The most common category for profession was "unemployed", mentionned in `r round(percent.profession.unemployed)`% of studies, along with a variety of specific jobs, such as attorney, farmer and astronaut. In `r round(percent.ses.income)`% of studies reporting socio-economic status, the categories of SES were based on range of income. The rest of the articles reported SES in subjective measures, such as "high, medium, low". 
 
-```{r, fig.cap="Number of categories reported for education, ethnicity, profession and socio-economic status (SES). Yellow vertical line corresponds to the median.", warning=FALSE, message=FALSE}
-grid.arrange(figure11A, figure11B, figure11C, figure11D, nrow=2, top="Number of reported categories")
+```{r, fig.cap="Distribution of the number of categories reported for education, ethnicity, profession and socio-economic status (SES). The yellow vertical line corresponds to the median.", warning=FALSE, message=FALSE}
+grid.arrange(figure10A, figure10B, figure10C, figure10D, nrow=2, top="Number of reported categories")
 ```
 
 
 ## Study focus
 
-  We considered whether a given article reported on a specific, pre-defined group of people. We find `r round(percent.focus.sex)`% of articles focused on a sex dependent feature, while `r round(percent.focus.clinical)`% investigated a clinical feature. `r round(percent.focus.twins)`% of studies focused on twins, `r round(percent.focus.pregnant)`% on pregnant women, `r round(percent.focus.shift)`% on shift workers and `r round(percent.focus.students)`% on university students. 
+  We considered whether a given article reported on a specific, pre-defined group of people. We found that `r round(percent.focus.sex)`% of articles focused on a sex dependent feature, while `r round(percent.focus.clinical)`% investigated a clinical feature. `r round(percent.focus.twins)`% of studies focused on twins, `r round(percent.focus.pregnant)`% on pregnant women, `r round(percent.focus.shift)`% on shift workers and `r round(percent.focus.students)`% on university students. 
 
 
 ## Analysis disaggregation
 
-  We examined the extent to which articles reported subgroup analyses of the data based on one or more of the reported demographic variables. Over time (Fig. 9), we see a distinct evolution of the extent to which subgroup analyses of the study sample were performed. The most common subgroup analyses involve disaggregating by sex, age, or both.
+  We examined the extent to which articles reported subgroup analyses of the data based on one or more of the reported demographic variables. Over time (Fig. 11), we see a distinct evolution of the extent to which subgroup analyses of the study sample were performed. The most common subgroup analyses involve disaggregating by sex, age, or both.
   
   
 ```{r, fig.cap="Use of study population characteristics as variables in the analysis."}
-figure12
+figure11
 ```
 
 
@@ -1251,11 +1338,11 @@ figure12
 
 ## Summary of main findings
 
-Here, we considered the inclusion, reporting of `r as.numeric(nrow(data.included))` articles in chronobiology and sleep research, sampled from eight journals. More articles from more recent years are included, with articles originating in the US representing the large group. Over time, we found an increase in the range of sample sizes. We furthermore found a wider spread of average ages included in articles. Across the included articles, we observed an increase in the reporting of demographic variables (ethnicity, education, professional and socioeconomic status) over time, with ethnicity being the most-reported variable in recent years. Of studies included these demographic variables, the number of categories varied widely between studies.
+Here, we considered the inclusion and reporting of `r as.numeric(nrow(data.included))` articles in chronobiology and sleep research, sampled from eight journals. Articles from recent years were more widely included, with articles originating in the US representing the largest group. While studies conducted in Western countries in North America and central Europe were predominant, those in Africa only represented 0.3% of all screened articles, underlining a gap in geographical inclusion. Over time, we found an increase in the range of sample sizes, as well as a wider spread of average ages included in the studies. We also observed an increase in the reporting of demographic variables (ethnicity, education, professional and socioeconomic status), with ethnicity being the most-reported variable in recent years. A wide variety of reporting strategies, which involve both objective and subjective measures, was also observed. 
 
 ## Taking an inventory of represented study samples reveals the representativeness of our collective knowledge
 
-The ability to generalize findings from the scientific literature to wide and diverse populations of people hinges upon the representativeness of the study sample with respect to demographic categories. The question to what extent the composition of a given study sample can make the generalisability of findings difficult or impossible has received attention in the field of psychology, where many articles published in prominent journals reflected participants from WEIRD (Western, Educated, Industrialized, Rich, and Democratic) contexts [@henrich_weirdest_2010; @muthukrishna_beyond_2020]. In other fields, analyses similar to the one in the present review have been published [@obryant_reporting_2004; @sifers_reporting_2002; @jones_reporting_2020], but to our knowledge, this review represents a first look at the inclusion, reporting and analysis of participant demographics in chronobiology and sleep research.
+The ability to generalize findings from the scientific literature to wide and diverse populations hinges upon the representativeness of the study sample with respect to demographic categories. The question to what extent the composition of a given study sample can make the generalizability of findings difficult or impossible has received attention in the field of psychology, where many articles published in prominent journals reflected participants from WEIRD (Western, Educated, Industrialized, Rich, and Democratic) contexts [@henrich_weirdest_2010; @muthukrishna_beyond_2020]. In other fields, analyses similar to the one in the present review have been published [@obryant_reporting_2004; @sifers_reporting_2002; @jones_reporting_2020;@Mooldijk2021], but to our knowledge, this review represents a first look at the inclusion, reporting and analysis of participant demographics in chronobiology and sleep research.
 
 
 ## The need to consider individual differences
@@ -1265,7 +1352,7 @@ There is convergent knowledge that health and sleep and circadian physiology are
 
 ## Limitations of the current review
 
-We turn to possible limitations of this review and the included analyses and discuss how they might introduce bias in our findings. First, we consider the possibility that the article selection procedure may have introduced biases. Our review only concerned articles from a subset of eight specialized journals. As a consequence, the included articles were necessarily published in these journals, ignoring relevant articles published in other specialized journals (such as those included in the list of candidate journals), and articles published in other, including interdisciplinary journals. This raises the question to what extent we may have missed a section of the literature that would have been relevant to include here. As an alternative strategy, we considered randomly sampling a subset of chronobiology and sleep research articles produced by a general search (e.g. on search from "sleep OR chronobiology" on MEDLINE), but considered this to be too permissive. Our strategy of selecting a subset of candidate journals provided a reasonable trade-off, as well as sampling from a range of field-specific outlets.
+We turn to possible limitations of this review and the included analyses and discuss how they might introduce bias in our findings. First, we consider the possibility that the article selection procedure may have introduced biases. Our review only concerned articles from a subset of eight specialized journals. As a consequence, the included articles were necessarily published in these journals, ignoring relevant articles published in other specialized journals (such as those included in the list of candidate journals), and articles published in other interdisciplinary journals. This raises the question to what extent we may have missed a section of the literature that would have been relevant to include in this study. As an alternative strategy, we considered randomly sampling a subset of chronobiology and sleep research articles produced by a general search (e.g. on search from "sleep OR chronobiology" on MEDLINE), but considered this to be too permissive. Our strategy of selecting a subset of candidate journals provided a reasonable trade-off, as well as sampling from a range of field-specific outlets.
 
 Due to the non-uniform distribution of publication years of the included articles (Fig. 1), variables derived from published papers and visualized and/or analyzed by year will have varying uncertainty, with reported percentages from publications of the earlier years being most uncertain. The fact that early years are represented with fewer articles, however, is not a function of our data set, but of the exponential growth of scientific output [@powell_introduction_2017; @bornmann_growth_2015; @parolo_attention_2015].
 
@@ -1273,11 +1360,11 @@ Due to the non-uniform distribution of publication years of the included article
 
 There are guidelines and/or checklists for standardizing reporting of participant characteristics, such as CONSORT [@schulz_consort_2010] or STROBE [@von_elm_strengthening_2007] (an extensive database for health research reporting guidelines is provided by the Equator Network, https://www.equator-network.org/). Some biomedical journals [e.g. @robinson_transparent_2017] specifically state demographic reporting requirements in the author instructions. Similarly, some organizations may make recommendations of specific reporting items for specific types of study questions [@veitch_cie_2020].
 
-These guidelines and/or checklists are largely focused on *what* is reported and not *how* it is reported. There is, *a priori*, however, no reason to not develop and use a standardized and machine-readable schema for reporting participant characteristics. The FAIR principles state that data should be findable, accessible, interoperable and reusable [@wilkinson_fair_2016], and one way of realizing these criteria is the use of data schemas which could prescribe categories of data and common naming schemes for reporting participant characteristics. Importantly, however, "what gets counted counts" [@dignazio_data_2020], and it will be imperative to understand to what extent such data schema may be exclusionary, e.g., by enforcing gender binaries [@hyde_future_2019], and whether any specific demographic variable is truly important (following the principle of data minimization). A further central point to consider is the extent to which disaggregation by demographic variables could be used to do harm in some way [@dignazio_data_2020].
+These guidelines and/or checklists are largely focused on *what* is reported and not *how* it is reported. There is, *a priori*, however, no reason to not develop and use a standardized and machine-readable schema for reporting participant characteristics. The FAIR principles state that data should be findable, accessible, interoperable and reusable [@wilkinson_fair_2016], and one way of realizing these criteria is the use of data schemas which could prescribe categories of data and common naming schemes for reporting participant characteristics. Importantly, however, "what gets counted counts" [@dignazio_data_2020], and it will be imperative to understand to what extent such data schema may be exclusionary, e.g., by enforcing sex binaries [@hyde_future_2019], and whether any specific demographic variable is truly important (following the principle of data minimization). A further central point to consider is the extent to which disaggregation by demographic variables could be used to do harm in some way [@dignazio_data_2020].
 
 # Conclusion
 
-This review provided a first look at the inclusion, reporting and analysis of demographic variables in the chronobiology and sleep research literature, considering >1000 articles across eight journals. We addressed the need to consider individual differences, as well as the dependence of sleep and circadian rhythms and demographic variables. Additionally, we outline an opportunity to improve reporting of participant-level characteristics using formalized data schemas.
+This review provides a first look at the inclusion, reporting and analysis of demographic variables in the chronobiology and sleep research literature, considering >1000 articles across eight journals. We address the need to consider individual differences, as well as the dependence of sleep and circadian rhythms on demographic variables. Additionally, we outline an opportunity to improve reporting of participant-level characteristics using formalized data schemas.
 
 \newpage
 
