@@ -1,2 +1,3 @@
-# sleep_circadian_demographics_data
-Repository with code and data for Tir, White &amp; Spitschan (2021)
+<img src="https://github.com/tscnlab/Templates/blob/main/logo/logo_with_text-01.png" width="400"/>
+
+# Supplementary material for Tir, White & Spitschan (2024)
